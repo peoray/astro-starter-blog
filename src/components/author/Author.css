@@ -1,0 +1,24 @@
+.author {
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: center;
+  padding: calc(var(--space) / 2) 0;
+}
+.author__image {
+  border-radius: 100%;
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1em;
+}
+.author__intro {
+  opacity: 0.8;
+}
+.author__site-title {
+  font-size: 1.5em;
+}
+.author__links {
+  margin-top: -0.5em;
+}
+.author__links a {
+  margin: 0 0.5em;
+}

@@ -1,0 +1,36 @@
+---
+// import Image from 'astro/components/Image.astro';
+import { Image } from 'astro:assets';
+import PhotoImage from '../../assets/images/photo.png';
+import './Author.css';
+
+export interface Props {
+  showTitle: boolean;
+}
+
+const { showTitle } = Astro.props;
+---
+
+<p>This is the author page</p>
+<div>
+  <Image
+    class="author__image"
+    alt="Author image"
+    src={PhotoImage}
+    width={180}
+    height={180}
+    blur={5}
+  />
+
+  {showTitle && <h1 class="author__site-title">{1 + 1}</h1>}
+
+  <p class="author__intro">
+    A simple, hackable & minimalistic starter for Gridsome that uses Markdown
+    for content.
+  </p>
+
+  <p class="author__links">
+    <a href="//twitter.com/gridsome">Follow on Twitter</a>
+    <a href="//github.com/gridsome/gridsome-starter-blog">GitHub</a>
+  </p>
+</div>

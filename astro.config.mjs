@@ -6,5 +6,8 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap(), image(), mdx()]
+  // TODO: add site url
+  site: 'http://localhost:3000',
+  integrations: [sitemap(), image(), mdx()],
+  experimental: { assets: true },
 });
