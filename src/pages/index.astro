@@ -2,12 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Author from '../components/author/Author.astro';
 import Logo from '../components/logo/Logo.astro';
+import PostMeta from '../components/post-meta/PostMeta.astro';
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
     <Author showTitle={true} />
     <Logo />
+    <PostMeta date="d" timeToRead="s" />
   </main>
 </Layout>
 

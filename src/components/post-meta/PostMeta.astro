@@ -1,0 +1,15 @@
+---
+import './PostMeta.css';
+
+export interface Props {
+  date: string;
+  timeToRead: string;
+}
+
+const { date, timeToRead } = Astro.props;
+---
+
+<div class="post-meta">
+  Posted {{ date }}.
+  {timeToRead && <strong>{{ timeToRead }} min read.</strong>}
+</div>
