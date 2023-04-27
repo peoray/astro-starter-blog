@@ -1,5 +1,5 @@
 ---
-import './PostMeta.css';
+import './PostMeta.css'
 
 // export interface Props {
 //   date: string;
@@ -7,11 +7,23 @@ import './PostMeta.css';
 //   class: string;
 // }
 
-const { post } = Astro.props;
-const { date, timeToRead, classes } = post;
+const { post } = Astro.props
+// const { date, timeToRead, classes } = post;
+const { date, classes } = post
+console.log(date)
 ---
 
 <div class:list={['post-meta', classes]}>
-  Posted {{ date }}.
-  {timeToRead && <strong>{{ timeToRead }} min read.</strong>}
+  Posted
+  <time datetime={date.toISOString()}>
+    {
+      date.toLocaleDateString('en-us', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    }.
+  </time>
+
+  <!-- {timeToRead && <strong>{{ timeToRead }} min read.</strong>} -->
 </div>

@@ -5,7 +5,7 @@
 .post-tags__link {
   margin-right: 0.7em;
   font-size: 0.8em;
-  color: currentColor;
+  color: currentColor !important;
   text-decoration: none;
   background-color: var(--bg-color);
   color: currentColor;

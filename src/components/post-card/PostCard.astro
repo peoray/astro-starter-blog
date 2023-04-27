@@ -1,37 +1,56 @@
 ---
-import PostTags from '../post-tags/PostTags.astro';
-import PostMeta from '../post-meta/PostMeta.astro';
+import { CollectionEntry } from 'astro:content'
+import { Image } from 'astro:assets'
 
-import { Image } from 'astro:assets';
+import PostTags from '../post-tags/PostTags.astro'
+import PostMeta from '../post-meta/PostMeta.astro'
 
-import './PostCard.css';
+import './PostCard.css'
 
-const { post } = Astro.props;
-const { cover_image, title, description, path } = post;
+type Props = {
+  posts: CollectionEntry<'blog'>[]
+}
 
-const tags = ['hello', 'world'];
+const { posts } = Astro.props
+// const { cover_image, title, description, poster } = post;
+
+// posts.map((post) => {
+//   console.log(post.data)
+// })
 ---
 
-<div
-  class="post-card content-box"
-  class:list={[{ 'post-card--has-poster': post.poster }]}
->
-  <div class="post-card__header">
-    {
-      cover_image && (
-        <Image alt="Cover image" class="post-card__image" src={cover_image} />
+<>
+  {
+    posts.map((post) => {
+      const { cover_image, title, description, tags } = post.data
+      return (
+        <div
+          class="post-card content-box"
+          class:list={[{ 'post-card--has-poster': cover_image }]}
+        >
+          <div class="post-card__header">
+            {cover_image && (
+              <Image
+                alt="Cover image"
+                class="post-card__image"
+                src={cover_image}
+                width={200}
+                height={200}
+              />
+            )}
+          </div>
+
+          <div class="post-card__content">
+            <h2 class="post-card__title">{title}</h2>
+            <p class="post-card__description">{description}</p>
+            <PostMeta classes="post-card__meta" post={post.data} />
+            <PostTags classes="post-card__tags" tags={tags} />
+            <a class="post-card__link" href={post.slug}>
+              Link
+            </a>
+          </div>
+        </div>
       )
-    }
-  </div>
-  <div class="post-card__content">
-    <h2 class="post-card__title">{title}</h2>
-    <p class="post-card__description">
-      {description}
-    </p>
-
-    <PostMeta classes="post-card__meta" post={post} />
-    <PostTags class="post-card__tags" tag={tags} />
-
-    <a class="post-card__link" href={post.path}>Link</a>
-  </div>
-</div>
+    })
+  }
+</>

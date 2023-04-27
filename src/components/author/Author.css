@@ -14,7 +14,7 @@
   opacity: 0.8;
 }
 .author__site-title {
-  font-size: 1.5em;
+  font-size: 1.5em !important;
 }
 .author__links {
   margin-top: -0.5em;
