@@ -1,15 +1,12 @@
 ---
 import './PostTags.css';
 
-const { tags } = Astro.props;
+const { tag, classes } = Astro.props;
 ---
 
-<div class="post-tags">
-  {
-    tags.map((tag) => {
-      <a class="post-tags__link" key={tag.id} href={tag.path}>
-        <span>#</span> {tag.title}
-      </a>;
-    })
-  }
+<div class:list={['post-tags', classes]}>
+  <a class="post-tags__link" href={tag.path}>
+    <span>#</span>
+    {tag.title}
+  </a>
 </div>
