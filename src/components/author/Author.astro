@@ -11,8 +11,7 @@ export interface Props {
 const { showTitle } = Astro.props;
 ---
 
-<p>This is the author page</p>
-<div>
+<div class="author">
   <Image
     class="author__image"
     alt="Author image"
@@ -22,7 +21,7 @@ const { showTitle } = Astro.props;
     blur={5}
   />
 
-  {showTitle && <h1 class="author__site-title">{1 + 1}</h1>}
+  {showTitle && <h1 class="author__site-title"> Gridsome Blog Starter </h1>}
 
   <p class="author__intro">
     A simple, hackable & minimalistic starter for Gridsome that uses Markdown
