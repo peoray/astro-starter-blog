@@ -1,0 +1,37 @@
+---
+import PostTags from '../post-tags/PostTags.astro';
+import PostMeta from '../post-meta/PostMeta.astro';
+
+import { Image } from 'astro:assets';
+
+import './PostCard.css';
+
+const { post } = Astro.props;
+const { cover_image, title, description, path } = post;
+
+const tags = ['hello', 'world'];
+---
+
+<div
+  class="post-card content-box"
+  class:list={[{ 'post-card--has-poster': post.poster }]}
+>
+  <div class="post-card__header">
+    {
+      cover_image && (
+        <Image alt="Cover image" class="post-card__image" src={cover_image} />
+      )
+    }
+  </div>
+  <div class="post-card__content">
+    <h2 class="post-card__title">{title}</h2>
+    <p class="post-card__description">
+      {description}
+    </p>
+
+    <PostMeta class="post-card__meta" post={post} />
+    <PostTags class="post-card__tags" post={tags} />
+
+    <a class="post-card__link" href={post.path}>Link</a>
+  </div>
+</div>
