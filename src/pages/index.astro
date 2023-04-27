@@ -3,14 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import Author from '../components/author/Author.astro';
 import Logo from '../components/logo/Logo.astro';
 import PostMeta from '../components/post-meta/PostMeta.astro';
+import PostCard from '../components/post-card/PostCard.astro';
+
+const { showLogo } = Astro.props;
+
+const data = {
+  title: 'Hello World',
+  description: 'fnwefwei',
+};
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
+<Layout title="Welcome to Astro." showLogo={false}>
+  <!-- Author intro -->
+  <Author showTitle={true} />
+
+  <!-- List posts -->
+  <div class="posts">
+    <PostCard post={data} />
+  </div>
+
+  <!-- <main>
     <Author showTitle={true} />
     <Logo />
     <PostMeta date="d" timeToRead="s" />
-  </main>
+  </main> -->
 </Layout>
 
 <style></style>
