@@ -8,6 +8,11 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   // TODO: add site url
   site: 'http://localhost:3000',
+  markdown: {
+    syntaxHighlight: 'prism',
+    // remarkPlugins: [remarkPlugin1],
+    // gfm: true,
+  },
   integrations: [sitemap(), image(), mdx()],
   experimental: { assets: true },
 });

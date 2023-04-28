@@ -5,7 +5,6 @@ import BlogLayout from '../layouts/BlogLayout.astro'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog')
-  //   console.log(posts)
   return posts
     .filter((post) => post.data.published === true)
     .map((post) => ({
@@ -13,13 +12,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
       props: post,
     }))
 }
-// type Props = CollectionEntry<'blog'>
 
 interface Props {
   post: CollectionEntry<'blog'>
 }
 const post = Astro.props
-console.log(post)
 const { Content } = await post.render()
 ---
 
