@@ -1,0 +1,42 @@
+---
+import PostCard from '../../components/post-card/PostCard.astro'
+import Layout from '../../layouts/Layout.astro'
+
+import { getCollection, CollectionEntry } from 'astro:content'
+import slugify from '../../utils/slugify'
+
+export async function getStaticPaths() {
+  const posts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
+    .filter((post) => post.data.published === true)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+
+  const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())]
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = posts.filter((post) => post.data.tags.includes(tag))
+    return {
+      params: { tag: slugify(tag) },
+      props: { posts: filteredPosts },
+    }
+  })
+}
+const { tag } = Astro.params
+const { posts } = Astro.props
+
+// get reading time of each post
+posts.map(async (post: any) => {
+  const { remarkPluginFrontmatter } = await post.render()
+  post.data.minutesRead = remarkPluginFrontmatter.minutesRead
+  return post
+})
+---
+
+<Layout title="Tag" showLogo={false}>
+  <h1 class="tag-title text-center space-bottom">
+    # {tag}
+  </h1>
+
+  <div class="posts">
+    <PostCard posts={posts} />
+  </div>
+</Layout>

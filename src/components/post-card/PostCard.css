@@ -1,5 +1,5 @@
 .post-card {
-  margin-bottom: var(--space);
+  margin-bottom: var(--space) !important;
   position: relative;
 }
 .post-card__header {

@@ -1,15 +1,8 @@
 ---
 import './PostTags.css'
+import slugify from '../../utils/slugify'
 
 const { tags, classes } = Astro.props
-
-const slugify = (str: string): string => {
-  return str
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // remove non-word chars (excluding spaces and dashes)
-    .replace(/[\s_-]+/g, '-') // replace spaces and underscores with a single dash
-    .replace(/^-+|-+$/g, '') // remove leading/trailing dashes
-}
 ---
 
 <div class:list={['post-tags', classes]}>
