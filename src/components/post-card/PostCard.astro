@@ -1,6 +1,5 @@
 ---
 import { CollectionEntry } from 'astro:content'
-import { Image } from 'astro:assets'
 
 import PostTags from '../post-tags/PostTags.astro'
 import PostMeta from '../post-meta/PostMeta.astro'
@@ -26,12 +25,10 @@ const { posts } = Astro.props
         >
           <div class="post-card__header">
             {cover_image && (
-              <Image
+              <img
                 alt="Cover image"
                 class="post-card__image"
                 src={cover_image}
-                width={200}
-                height={200}
               />
             )}
           </div>
