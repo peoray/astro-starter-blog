@@ -8,7 +8,7 @@ export interface Props {
   showLogo: boolean
 }
 
-const { title, showLogo } = Astro.props
+const { title, showLogo = true } = Astro.props
 ---
 
 <!DOCTYPE html>

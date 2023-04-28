@@ -18,6 +18,7 @@ const { posts } = Astro.props
   {
     posts.map((post) => {
       const { cover_image, title, description, tags } = post.data
+      console.log(post.slug)
       return (
         <div
           class="post-card content-box"
@@ -40,7 +41,7 @@ const { posts } = Astro.props
             <p class="post-card__description">{description}</p>
             <PostMeta classes="post-card__meta" post={post.data} />
             <PostTags classes="post-card__tags" tags={tags} />
-            <a class="post-card__link" href={post.slug}>
+            <a class="post-card__link" href={`/${post.slug}`}>
               Link
             </a>
           </div>
