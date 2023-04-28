@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets'
+import Author from '../components/author/Author.astro'
+import PostMeta from '../components/post-meta/PostMeta.astro'
+import PostTags from '../components/post-tags/PostTags.astro'
+import Layout from './Layout.astro'
+// import '../styles/code.css'
+
+const { post } = Astro.props
+console.log(post)
+const { title, tags, cover_image } = post.data
+---
+
+<Layout showLogo={false} title="Blog page">
+  <div class="post-title">
+    <h1 class="post-title__text">
+      {title}
+    </h1>
+
+    <PostMeta post={post.data} />
+  </div>
+
+  <div class="post content-box">
+    <div class="post__header">
+      {
+        cover_image && (
+          //   <Image alt="Cover image" src={cover_image} width={200} height={200} />
+          <img alt="Cover image" src={cover_image} />
+        )
+      }
+    </div>
+
+    <div class="post__content">
+      <slot />
+    </div>
+
+    <div class="post__footer">
+      <PostTags tags={tags} />
+    </div>
+  </div>
+
+  <!-- <div class="post-comments"> -->
+  <!-- Add comment widgets here -->
+  <!-- </div> -->
+
+  <Author showTitle={false} classes="post-author" />
+</Layout>
+
+<style lang="scss">
+  .post-title {
+    padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
+    text-align: center;
+  }
+  .post {
+    &__header {
+      width: calc(100% + var(--space) * 2);
+      margin-left: calc(var(--space) * -1);
+      margin-top: calc(var(--space) * -1);
+      margin-bottom: calc(var(--space) / 2);
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+      img {
+        width: 100%;
+      }
+      &:empty {
+        display: none;
+      }
+    }
+    &__content {
+      h2:first-child {
+        margin-top: 0;
+      }
+      p:first-of-type {
+        font-size: 1.2em;
+        color: var(--title-color);
+      }
+      img {
+        width: calc(100% + var(--space) * 2);
+        margin-left: calc(var(--space) * -1);
+        display: block;
+        max-width: none;
+      }
+    }
+  }
+  .post-comments {
+    padding: calc(var(--space) / 2);
+    &:empty {
+      display: none;
+    }
+  }
+  .post-author {
+    margin-top: calc(var(--space) / 2);
+  }
+</style>

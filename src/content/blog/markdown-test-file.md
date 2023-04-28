@@ -51,7 +51,7 @@ determines the header level.)
 
 Images are added with `![Image Alt](./images/image.jpg)`
 
-![Image](./images/alexandr-podvalny-220262-unsplash.jpg)
+![Image](/images/alexandr-podvalny-220262-unsplash.jpg)
 
 
 ### Blockquotes
@@ -248,7 +248,7 @@ Regular Markdown syntax is not processed within code blocks. E.g.,
 asterisks are just literal asterisks within a code block. This means
 it's also easy to use Markdown to write about Markdown's own syntax.
 
-```
+```html
 tell application "Foo"
     beep
 end tell

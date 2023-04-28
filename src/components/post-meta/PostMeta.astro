@@ -10,12 +10,12 @@ import './PostMeta.css'
 const { post } = Astro.props
 // const { date, timeToRead, classes } = post;
 const { date, classes } = post
-console.log(date)
 ---
 
 <div class:list={['post-meta', classes]}>
   Posted
-  <time datetime={date.toISOString()}>
+  <!-- <time datetime={new Date(date).toISOString()}> -->
+  <time>
     {
       date.toLocaleDateString('en-us', {
         year: 'numeric',
