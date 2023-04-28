@@ -1,6 +1,7 @@
 ---
 import Logo from '../components/logo/Logo.astro'
 import ToggleTheme from '../components/toggle-theme/ToggleTheme.astro'
+
 import '../styles/index.css'
 import './Layout.css'
 export interface Props {
@@ -18,6 +19,8 @@ const { title, showLogo = true } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script src="../utils/theme.js" type="text/javascript" is:inline></script>
+
     <title>{title}</title>
   </head>
   <body>

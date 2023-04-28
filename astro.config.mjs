@@ -2,7 +2,9 @@ import { defineConfig } from 'astro/config';
 import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
 import mdx from "@astrojs/mdx";
-import { remarkReadingTime } from './src/utils/remark-reading-time.mjs'
+import { remarkReadingTime } from './src/utils/remark-reading-time.mjs';
+
+import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,9 +12,12 @@ export default defineConfig({
   site: 'http://localhost:3000',
   markdown: {
     syntaxHighlight: 'prism',
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime]
     // gfm: true,
   },
-  integrations: [sitemap(), image(), mdx()],
-  experimental: { assets: true },
+
+  integrations: [sitemap(), image(), mdx(), vue()],
+  experimental: {
+    assets: true
+  }
 });
