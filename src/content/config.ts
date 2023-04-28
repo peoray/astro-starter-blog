@@ -10,6 +10,7 @@ const blogCollection = defineCollection({
     series: z.boolean(),
     cover_image: z.string(),
     canonical_url: z.boolean(),
+    minutesRead: z.string().optional()
   }),
 });
 

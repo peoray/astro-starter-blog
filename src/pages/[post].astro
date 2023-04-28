@@ -17,7 +17,8 @@ interface Props {
   post: CollectionEntry<'blog'>
 }
 const post = Astro.props
-const { Content } = await post.render()
+const { Content, remarkPluginFrontmatter } = await post.render()
+post.data.minutesRead = remarkPluginFrontmatter.minutesRead
 ---
 
 <BlogLayout post={post}>
