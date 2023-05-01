@@ -12,6 +12,11 @@ jobs:
       - name: Install the packages
         run: npm ci
 
+      - name: Set up environment variables
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Initialize Git user
         run: |
           git config user.name "${GITHUB_ACTOR}"
@@ -21,6 +26,7 @@ jobs:
         run: npm run release --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: End message
         run: echo 'All done!'
