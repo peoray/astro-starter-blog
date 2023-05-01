@@ -2,12 +2,16 @@
   "name": "astro-starter-blog",
   "type": "module",
   "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "release": "release-it"
   },
   "dependencies": {
     "@astrojs/image": "^0.16.6",
@@ -20,6 +24,7 @@
   },
   "devDependencies": {
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.8.0"
+    "prettier-plugin-astro": "^0.8.0",
+    "release-it": "^15.10.2"
   }
 }
