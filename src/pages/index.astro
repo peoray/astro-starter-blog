@@ -10,11 +10,13 @@ const posts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
   .filter((post) => post.data.published === true)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 
-posts.map(async (post) => {
-  const { remarkPluginFrontmatter } = await post.render()
-  post.data.minutesRead = remarkPluginFrontmatter.minutesRead
-  return post
-})
+await Promise.all(
+  posts.map(async (post) => {
+    const { remarkPluginFrontmatter } = await post.render()
+    post.data.minutesRead = remarkPluginFrontmatter.minutesRead
+    return post
+  })
+)
 ---
 
 <Layout title="Welcome to Astro." showLogo={false}>
@@ -25,5 +27,3 @@ posts.map(async (post) => {
     <PostCard posts={posts} />;
   </div>
 </Layout>
-
-<style></style>
