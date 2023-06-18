@@ -2,15 +2,15 @@
 import './PostMeta.css'
 
 const { post } = Astro.props
-const { date, classes, minutesRead } = post
+const { pubDate, classes, minutesRead } = post
 ---
 
 <div class:list={['post-meta', classes]}>
   Posted
-  <time datetime={new Date(date).toISOString()}>
+  <time datetime={new Date(pubDate).toISOString()}>
     <time>
       {
-        date.toLocaleDateString('en-us', {
+        pubDate.toLocaleDateString('en-us', {
           year: 'numeric',
           month: 'short',
           day: 'numeric',
@@ -19,6 +19,5 @@ const { date, classes, minutesRead } = post
     </time>
 
     {minutesRead && <strong>{minutesRead}.</strong>}
-    <!-- <strong>{minutesRead}.</strong> -->
   </time>
 </div>

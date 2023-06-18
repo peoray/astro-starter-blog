@@ -7,8 +7,8 @@ import slugify from '../../utils/slugify'
 
 export async function getStaticPaths() {
   const posts: CollectionEntry<'blog'>[] = (await getCollection('blog'))
-    .filter((post) => post.data.published === true)
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .filter((post) => post.data.draft === false)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 
   const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())]
 

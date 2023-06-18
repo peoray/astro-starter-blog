@@ -1,10 +1,9 @@
 ---
 title: Test File Upload
 description: "Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all else. A Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions."
-date: 2020-01-07
-published: true
+pubDate: 2020-01-07
+draft: false
 tags: ['Markdown', 'Cover Image']
-series: false
 cover_image: ""
 canonical_url: false
 ---

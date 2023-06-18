@@ -6,7 +6,7 @@ import BlogLayout from '../layouts/BlogLayout.astro'
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getCollection('blog')
   return posts
-    .filter((post) => post.data.published === true)
+    .filter((post) => post.data.draft === false)
     .map((post) => ({
       params: { post: post.slug },
       props: post,
@@ -14,6 +14,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 interface Props {
+  render():
+    | { Content: any; remarkPluginFrontmatter: any }
+    | PromiseLike<{ Content: any; remarkPluginFrontmatter: any }>
+  data: any
   post: CollectionEntry<'blog'>
 }
 const post = Astro.props

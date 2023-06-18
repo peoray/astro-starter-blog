@@ -10,6 +10,7 @@ export interface Props {
 }
 
 const { showTitle, classes } = Astro.props
+import { SITE_TITLE, PAGE_DESCRIPTION, TWITTER, GITHUB } from '../../consts'
 ---
 
 <div class:list={['author', classes]}>
@@ -22,15 +23,14 @@ const { showTitle, classes } = Astro.props
     blur={5}
   />
 
-  {showTitle && <h1 class="author__site-title"> Astro Blog Starter </h1>}
+  {showTitle && <h1 class="author__site-title"> {SITE_TITLE} </h1>}
 
   <p class="author__intro">
-    A simple, hackable & minimalistic starter for Astro that uses Markdown for
-    content.
+    {PAGE_DESCRIPTION}
   </p>
 
   <p class="author__links">
-    <a href="//twitter.com/peoray_">Follow on Twitter</a>
-    <a href="//github.com/peoray/astro-starter-blog">GitHub</a>
+    <a href={TWITTER}>Follow on Twitter</a>
+    <a href={GITHUB}>GitHub</a>
   </p>
 </div>
