@@ -19,12 +19,10 @@
     "@astrojs/sitemap": "^1.2.2",
     "astro": "^2.2.0",
     "mdast-util-to-string": "^3.2.0",
-    "reading-time": "^1.5.0",
-    "sass": "^1.62.0"
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.8.0",
-    "release-it": "^15.10.2"
+    "prettier-plugin-astro": "^0.8.0"
   }
 }

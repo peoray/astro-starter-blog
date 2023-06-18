@@ -17,7 +17,6 @@ const { posts } = Astro.props
   {
     posts.map((post) => {
       const { cover_image, title, description, tags } = post.data
-      console.log(post.slug)
       return (
         <div
           class="post-card content-box"
