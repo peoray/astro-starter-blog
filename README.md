@@ -1,21 +1,59 @@
-# Astro Starter Kit: Basics
+# Astro Starter Blog
+
+> A simple, hackable & minimalistic starter for Astro that uses Markdown for content.
+
+## 🔥 Features
+- ✅ Beautiful and simple design.
+- ✅ Easy configuration
+- ✅ Markdown & MDX support
+- ✅ Tags support.
+- ✅ Dark / Light toggle.
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Uses [`astro:assets`](https://docs.astro.build/en/guides/assets/) for optimized images
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Blog drafts
+
+## 🌍 Demo URL
+
+https://astro-starter-blog.netlify.app
+
+
+## 👨🏾‍💻 Getting started
 
 ```
-npm create astro@latest -- --template basics
+npm create astro@latest -- --template peoray/astro-starter-blog
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### 👨🏾‍💻 Configuration
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Edit the values in `src/consts.ts` to match your brand or company:
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+```ts
 
+export const SITE_TITLE = "Astro Blog Starter";
+export const SITE_URL = "https://astro-starter-blog.netlify.app/";
+export const SITE_DESCRIPTION = "Welcome to my personal website!";
+export const PAGE_DESCRIPTION = "A simple, hackable & minimalistic starter for Astro that uses Markdown for content"
+export const TWITTER = "https://twitter.com/peoray_"
+export const GITHUB = "https://github.com/peoray/astro-starter-blog"
+export const AUTHOR = "Emmanuel Raymond"
+export const IMAGE = "/images/photo.png"
+export const IMAGE_ALT = "Photo of an avatar"
+
+```
+
+Change any lines or add more in the `<head>` tags in `src/components/MetaTags.astro`, like the favicon:
+
+```html
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+```
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+<!-- Inside of your Astro project, you'll see the following folders and files:
 
 ```
 /
@@ -29,7 +67,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── pages/
 │       └── index.astro
 └── package.json
-```
+``` -->
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
@@ -52,4 +90,16 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check the [Astro documentation](https://docs.astro.build) or jump into the [Discord server](https://astro.build/chat).
+
+## 💙 Acknowledgement
+
+This theme is a port of the popular [Gridsome Starter Blog](https://github.com/gridsome/gridsome-starter-blog) made by the creator of Gridsome, Tommy Vedvik.
+
+## ✨ Contributing
+
+Feel free to open an issue if you find bugs or want to request new features.
+
+## 📜 License
+
+Licensed under the [MIT License](https://opensource.org/license/mit/), Copyright © Emmanuel Raymond 2023
