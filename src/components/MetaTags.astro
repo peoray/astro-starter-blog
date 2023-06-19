@@ -1,0 +1,57 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION, IMAGE, IMAGE_ALT } from '../consts'
+import jsonLDGenerator from '../utils/jsonLD'
+
+const {
+  title,
+  description,
+  url = Astro.url,
+  cover_image,
+  data,
+  robots,
+} = Astro.props
+
+const jsonLD = jsonLDGenerator({
+  type: data ? 'post' : 'website',
+  post: data,
+  url: url.href,
+})
+---
+
+<head>
+  <title>{title}</title>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- SEO -->
+  <link rel="canonical" href={url.href} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={SITE_TITLE} />
+  <meta property="og:title" content={title || SITE_TITLE} />
+  <meta property="og:description" content={description || SITE_DESCRIPTION} />
+  <meta property="og:url" content={url.href} />
+  <meta property="og:image" content={cover_image || IMAGE} />
+  <meta property="og:image:url" content={cover_image || IMAGE} />
+  <meta property="og:image:secure_url" content={cover_image || IMAGE} />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:image:alt" content={'Image' || IMAGE_ALT} />
+
+  <!-- Twitter -->
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={cover_image || IMAGE} />
+  <meta name="twitter:image:alt" content={title} />
+  <meta name="twitter:domain" content={import.meta.env.SITE} />
+
+  {robots && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- JSON LD -->
+  <Fragment set:html={jsonLD} />
+</head>

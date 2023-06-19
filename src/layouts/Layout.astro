@@ -1,26 +1,25 @@
 ---
 import Logo from '../components/logo/Logo.astro'
 import ToggleTheme from '../components/toggle-theme/ToggleTheme.astro'
+import MetaTags from '../components/MetaTags.astro'
 
 import '../styles/index.css'
 import '../styles/layout.css'
 export interface Props {
-  title: string
+  title?: string
   showLogo: boolean
+  description?: string
+  cover_image?: string
+  data?: any
+  robots?: boolean
 }
 
-const { title, showLogo } = Astro.props
+const { title, description, cover_image, data, robots, showLogo } = Astro.props
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
+  <MetaTags {title} {description} {cover_image} {data} {robots} />
   <body>
     <div id="app">
       <header class="header">
