@@ -7,8 +7,9 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
  */
 
 pre {
-  padding: calc(var(--space) / 2);
-  /* font-size: 0.85em; */
+  /* padding: calc(var(--space) / 2); */
+  padding: 1rem;
+  font-size: 0.8em;
   background-color: var(--bg-code);
   margin-bottom: 2em;
   border: 1px solid var(--border-color);
@@ -18,11 +19,11 @@ pre {
 pre.astro-code code {
   background-color: inherit !important;
   border: none !important;
+  all: unset;
 }
 
 code {
   background-color: var(--bg-code);
-  /* background-color: inherit; */
   border: 1px solid var(--border-color);
   font-size: 0.85em;
   padding: 0.2em 0.5em;
